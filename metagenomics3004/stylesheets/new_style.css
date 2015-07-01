@@ -1,0 +1,13 @@
+.jumbotron {
+	background-image: url('../img/dna.jpg');
+	background-size: cover;
+	color: white;
+}
+
+.main-content {
+	padding-bottom: 20px;
+}
+
+/*.button-align {
+	margin-top: 10px;
+}*/

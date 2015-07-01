@@ -1,0 +1,47 @@
+index:3
+banner_title:Getting R On Your System
+banner_description: R can help us perform a lot of useful statistical analyses. Let's get that setup.
+banner_img: Rlogo-1.png
+default_code: r
+
+#Getting R Setup on Your System
+
+##Why R?
+
+Lately statisticians and data scientists have been migrating to the R programming language. Its advantages include being an open source language as well as being tailor made for people analyzing collections of data. Think about the kind of operations you would do in Excel. R can do everything you would need to do in Excel and a lot more. R also has the perk of having a really good community supporting it. After a very short period of Google searching, you will find many helpful people explaining some interesting applications of R tools from biology to finance.
+
+Now R was made by some super smart people at Bell labs about twenty years ago and has been maturing since. There have also been a huge number of packages created for R over the years by eager R programmers like yourselves. What this means is R is sort of like exploring a giant castle. You will need to walk around a lot and revisit many of the same rooms before you really come to understand where everything is. That being said, let’s download everything we need.
+
+Now R is by no means the only option for programmatically analyzing data. The Python programming language has also gained a lot of steam and now has a great following. If you are interested in investigating some of the features Python has to offer, feel free to visit [this site](https://www.kaggle.com/wiki/GettingStartedWithPythonForDataScience). It is not at all required for this course, but it is always good to know what tools are available.
+
+
+
+
+
+##Downloading R and RStudio:
+
+Downloading R and RStudio:
+R is the programming language you will need to download. You will need to download it for your particular operating system. Choose your appropriate link from here:
+
+[http://cran.us.r-project.org/](http://cran.us.r-project.org/)
+
+After this downloads, you will probably get two R icons which open a dialogue which looks similar to the terminal. We will never be using these because it is kind of a clunky way to use R. Instead we will be installing an Integrated Development Environment (IDE) for R called RStudio. It works as a wrapper for R to create somewhat of a personalized console with different panes containing different information about the program you are working on. To download it go to this link and choose the right installer for your operating system:
+
+[http://www.rstudio.com/products/rstudio/download/](http://www.rstudio.com/products/rstudio/download/)
+
+##Working with RStudio:
+
+Once you are have everything downloaded, go ahead and open RStudio. The first time you open RStudio you will be greeted by three panels. The left half of the screen is the console. The upper right corner is the variable inspector, and the lower right corner will probably show you files within your **Home** directory. Let’s list off what they do one by one.
+
+Console: Kind of like the terminal which you have been working with so far. The difference is the R console is much more directed to performing mathematical operations and manipulating data. We will go over this more later. For now just understand that, like before, you can input commands to the R console and it will execute them as you go along.
+
+Environment/variable inspector: As you play around with data and store them into what is called a variable, the environment window will show you which variables point to what. We will go over what variables are later. For now just think of them as a label or address to find the data you are working with, making it easy to refer to later. Notice this panel also has a history tab where you can see all of the recent commands you have performed.
+
+File system: Just like going into your documents, this lists out files and folders you are working with. We will use this to navigate later. Notice the other tabs as well. The plots tabs will be used once we start making graphs from our data. The packages tab shows you all of the cool function bundles you can import when writing programs. (Remember when we imported the QIIME module in the terminal? This works just like that.) The Help panel will be useful for you once you start asking R how various functions are used. More on this later. The viewer tab is for more advanced interactive graphics and is out of the scope of this course.
+
+At this point take a look at the dropdown menus in the top left part of the screen. (ie File, Edit, Code…) Click on each and look at the options presented to you. You will almost definitely not understand what some of these options actually do. For now try to guess what they do to familiarize yourself with what is available.
+
+##Baby R as a Calculator:
+
+When you were using the terminal, you might have tried to do some basic math by typing something like ‘2+2’. You would have found that the terminal immediately rejects this and tells you it doesn't have a clue what you are talking about. R is different and is ready for whatever math you try to throw at it. Go ahead and try using these operators (+, -, *, /) for addition, subtraction, multiplication, and division respectively in the R console. You will, hopefully, notice that R gives you the correct answer for these calculations. It also takes into account order of operations. If we wanted to do simple calculations though, we would just do all programming with a pocket calculator, which really isn’t programming at all. We want to be able to perform tasks which are much more interesting than basic arithmetic. We will save that for the next lesson.
+For a taste of the advanced functionality that R provides, take a look at [this link]( http://bitesizebio.com/23003/my-10-favorite-r-packages-and-the-cool-things-you-can-do-with-them/ ).We will not be using most of these R packages, but it is good for you to get exposure to them now. A part of being a good programmer is keeping up to date with the neat tools that your fellow community members come up with.

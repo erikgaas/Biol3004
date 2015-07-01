@@ -1,0 +1,151 @@
+<meta charset=utf-8>
+<h1>
+ Making Some Visualizations in R
+</h1>
+<h2>
+ Ggplot2 and why we are using it:
+</h2>
+<p>
+ Ggplot2 is an R package that is not immediately accessible to you when you open R. Once you have it though, you will gain a rich array of interesting functions for plotting whatever data you would like. Ggplot2 is really nice because its method for plotting visualizations uses an intuitive strategy for showing you what you want to know. The gg stands for Grammar of Graphics. In some sense this means that program cares more about how you describe what you want to plot than how you want it actually plotted. Consider the graphing functions you would use on your old TI calculator. Ggplot2 is nothing like that. It is much more dynamic will adapt to the types of data you feed to it.
+</p>
+<h2>
+ Installing ggplot2:
+</h2>
+<p>
+ We have talked about ggplot2, but we don’t have it installed yet. There are two ways we can do this and we will see that both methods essentially do the same thing. The first way we can do this is by typing:
+</p>
+<pre><code class="language-r">install.packages(“ggplot2”)
+</code></pre>
+<p>
+ into the console and pressing enter. This might display some dialogue boxes. Just continue through it like you would for any installation. The other way is go to the lower-right pane in RStudio and clicking
+ <strong>
+  Packages
+ </strong>
+ . Now click on the
+ <strong>
+  install
+ </strong>
+ button. A window will pop up. Inside the packages field type
+ <strong>
+  ggplot2
+ </strong>
+ and press enter or click install. As you will see, the command we just showed will be automatically sent to the console and the same operation run.
+</p>
+<h2>
+ Loading our installed ggplot2 package:
+</h2>
+<p>
+ Once we have ggplot2 installed, we will have to tell R when we are using it. To do this we can either type
+</p>
+<pre><code class="language-r">library(“ggplot2”)
+</code></pre>
+<p>
+ into the console window and pressing enter. Or we can check the box next to ggplot2 located in the packages window we were just using.
+</p>
+<h2>
+ Grabbing data from datasets:
+</h2>
+<p>
+ Eventually we will be gathering our own data and importing it into R. For now we will be using a dataset that comes with R. We will be looking at the very famous iris dataset. To take a look at all of the data in this dataset, go to the R console and type:
+</p>
+<pre><code class="language-r">iris
+</code></pre>
+<p>
+ And press enter. This will show:
+</p>
+<pre><code class="language-r">        Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
+1            5.1         3.5          1.4         0.2     setosa
+2            4.9         3.0          1.4         0.2     setosa
+3            4.7         3.2          1.3         0.2     setosa
+4            4.6         3.1          1.5         0.2     setosa
+5            5.0         3.6          1.4         0.2     setosa
+6            5.4         3.9          1.7         0.4     setosa
+7            4.6         3.4          1.4         0.3     setosa
+8            5.0         3.4          1.5         0.2     setosa
+9            4.4         2.9          1.4         0.2     setosa
+10           4.9         3.1          1.5         0.1     setosa
+11           5.4         3.7          1.5         0.2     setosa
+12           4.8         3.4          1.6         0.2     setosa
+13           4.8         3.0          1.4         0.1     setosa
+14           4.3         3.0          1.1         0.1     setosa
+15           5.8         4.0          1.2         0.2     setosa
+16           5.7         4.4          1.5         0.4     setosa
+17           5.4         3.9          1.3         0.4     setosa
+18           5.1         3.5          1.4         0.3     setosa
+19           5.7         3.8          1.7         0.3     setosa
+                            .
+                            .
+                            .
+</code></pre>
+<p>
+ Each row represents the measurements of a particular iris flower. This includes the lengths and widths of the sepals and petals. The last column tells you which species of iris this flower belongs to. A question arises, can we determine which species a flower belongs to from its measurements?
+</p>
+<p>
+ Let’s investigate this by plotting some variables. Before we do this though, we intuitively want to extract two variables and see how they vary with each other. We can’t plot a four dimensional graph purely spatially, so we will settle for just two variables for now.  We can extract a column individually by typing:
+</p>
+<pre><code class="language-r">iris$Sepal.Length
+</code></pre>
+<p>
+ Or
+</p>
+<pre><code class="language-r">iris$Petal.Length
+</code></pre>
+<p>
+ This dollar sign notation says, “Go into the iris dataset and take out only the values for Petal.Length and keep them in order.” Once we have these, we can input them straight into a plotting function, which we will do next.
+</p>
+<h2>
+ Quick plotting with qplot
+</h2>
+<p>
+ Our ggplot2 package came with a very easy plotting function which will be sufficient for most of your plotting needs. We can use it like this:
+</p>
+<pre><code class="language-r">qplot(iris$Sepal.Length, iris$Petal.Length)
+</code></pre>
+<p>
+ <img alt="iris plot using qplot" class="img-responsive" src="img/plot1.png"/>
+</p>
+<p>
+ We can a nice looking plot by doing this.  Notice how function/command notation looks more like math notation than the terminal did. Here we pass qplot two arguments, the values for the x axis and the values for the y axis. It is kind of annoying that we had to type iris twice to make that function work. Qplot is nice and allows us to not be redundant by typing this:
+</p>
+<pre><code class="language-r">qplot(Sepal.Length, Petal.Length, data=iris)
+</code></pre>
+<p>
+ Since we specified that the data parameter of the qplot function is equal to iris, qplot will automatically assume that Sepal.Length and Petal.Length are columns in the iris dataset.
+</p>
+<p>
+ Now back to our question on classifying species based on flower measurements. Does our current graph do a good job of showing the difference between flower species? Well, maybe. We have clear clusters, but nothing telling us what species those belong to. We can improve our plot even more by coloring these dots based on their species. It turns out this is very easy. We can just specify that the color parameter is equal to Species:
+</p>
+<pre><code class="language-r">qplot(Sepal.Length, Petal.Length, data=iris, color=Species)
+</code></pre>
+<p>
+ <img alt="iris plot now using color" class="img-responsive" src="img/plot2.png"/>
+</p>
+<p>
+ Here we can see we have complete discrimination of the Setosa species while the distinction between Verisicolor and Virginica is apparent, but subtle.
+</p>
+<p>
+ Try plotting some of the other columns using the qplot function! See what interesting trends you can come up with?
+</p>
+<h2>
+ So why is this important?
+</h2>
+<p>
+ This isn’t a class on flowers, so why are we talking about them? Well it turns out that this problem of categorical discrimination is important in a gigantic array of fields. Consider metagenomics. We can take many different bacterial swabs from different parts of the human body, whether that be gut, different parts of the skin, mouth, or others. A similar question could be, “Can we distinguish different regions of the body based on the microbial species composition in that area?” Through this process we might be keeping track of the abundance of thousands of different species. Our flower example had four dimensions to correlate with the species categorization. Now imagine the same problem with a thousand different dimensions. It gets very complicated very fast, but using our programmatic tools effectively will allow us to tackle such questions. For now consider some of the different questions you might ask of metagenomics data? Do some research on your own and see if you can find something interesting.
+</p>
+<h2>
+ Quick tips on using RStudio
+</h2>
+<p>
+ Typing things over is really annoying. Going through this tutorial, you might have been using copy+paste between some of the qplot commands. One way to make this much faster is to use the up-arrow key when in the console window to look at commands you have made previously. This same exact feature works in the terminal as well.
+</p>
+<p>
+ Sometimes you are typing out a function name and are not quite sure of the spelling. RStudio is helpful in this circumstance. If you have part if it correct, you can press the tab key and RStudio will provide you some options for auto-completion. For instance try this:
+</p>
+<pre><code class="language-r">insta&lt;tab-key&gt;
+</code></pre>
+<p>
+ This will guess that you are probably going to type ‘install.packages’.
+</p>
+<p>
+ The terminal has similar functionality. If you are typing a folder name that you want to cd into, you can press tab and it will try to autocomplete, making typing much faster. Give it a try!
+</p>
