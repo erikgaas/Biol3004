@@ -18,10 +18,10 @@ import os
 import webapp2
 import jinja2
 from google.appengine.ext import db
-import markdown
+#import markdown
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
-markdown_dir = os.path.join(os.path.dirname(__file__), 'markdowns')
+#markdown_dir = os.path.join(os.path.dirname(__file__), 'markdowns')
 jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir), autoescape = False)
 
 class Handler(webapp2.RequestHandler):
@@ -46,22 +46,15 @@ class Programming(Handler):
 
 class Tutorials(Handler):
     def get(self, number):
-        # needed_file = open(markdown_dir+'/prog_tutorial'+number+'.md', 'rb')
-        # content = needed_file.read()
-        # content = unicode(content, "utf-8")
-        # needed_file.close()
-        # html = markdown.markdown(content)
-        # self.render('same-content.html', article_content = html)
-        # needed_file = open(markdown_dir+'/prog_tutorial'+number+'.md', 'rb')
-        # content = needed_file.read()
-        # content = unicode(content, "utf-8")
-        # needed_file.close()
-        # html = markdown.markdown(content)
         self.render('programming' + str(number) + ".html")
+
+class SignIn(Handler):
+    def get(self):
+        self.render('sign-in.html')
 
 
 
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler), ('/programming', Programming), (r'/programming(\d+)', Tutorials)
+    ('/', MainHandler), ('/programming', Programming), (r'/programming(\d+)', Tutorials), ('/sign-in', SignIn)
 ], debug=True)
