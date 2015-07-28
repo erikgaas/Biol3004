@@ -123,8 +123,9 @@ f_tbanner.close()
 
 
 #Copy all images over
-images = os.listdir("images")
-for file_name in images:
-	full_file_name = os.path.join("images", file_name)
-	if (os.path.isfile(full_file_name)):
-		shutil.copy(full_file_name, "metagenomics3004/img")
+#Manually copy over in windows because windows is stupid
+# images = os.listdir("images")
+# for file_name in images:
+# 	full_file_name = os.path.join("images", file_name)
+# 	if (os.path.isfile(full_file_name)):
+# 		shutil.copy(full_file_name, "metagenomics3004/img")
