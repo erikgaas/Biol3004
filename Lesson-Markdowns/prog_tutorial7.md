@@ -167,3 +167,5 @@ Finally we need to add the information to our ‘lake’ column. This is pretty 
 As you probably guessed, rep(‘Rice_Lake’, 10) repeats ‘Rice_Lake’ for us ten times.
 
 If this is a lot to take in all in one sitting, you are right! Don’t worry though. Practice makes perfect and there are plenty of articles where people do things in R that are even more interesting than what we have done in this lesson. For this try [R-Bloggers](http://www.r-bloggers.com/). 
+
+!!!
