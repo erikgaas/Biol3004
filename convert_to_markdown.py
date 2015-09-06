@@ -91,9 +91,9 @@ for md in markdowns:
 
 
 	#Add the testing tag
-	test_tag = """<meta charset=utf-8>\n"""
-	test_html = open("Test-HTML/programming" + md.index +".html", "w")
-	test_html.write(test_tag +  soup.prettify().encode("utf8"))
+	# test_tag = """<meta charset=utf-8>\n"""
+	# test_html = open("Test-HTML/programming" + md.index +".html", "w")
+	# test_html.write(test_tag +  soup.prettify().encode("utf8"))
 
 	# Create all of the banners
 	# Order of params: index, img, title, description
@@ -114,18 +114,18 @@ r_banner = open("metagenomics3004/templates/programming-banners.html", "w")
 r_banner.write(end_banner)
 r_banner.close()
 
-test_banner = all_banners.replace('src="img', 'src="../images')
-f_tbanner = open("Test-Banner/banners.html", "w")
-f_tbanner.write(test_banner)
-f_tbanner.close()
+# test_banner = all_banners.replace('src="img', 'src="../images')
+# f_tbanner = open("Test-Banner/banners.html", "w")
+# f_tbanner.write(test_banner)
+# f_tbanner.close()
 
 
 
 
 #Copy all images over
 #Manually copy over in windows because windows is stupid
-# images = os.listdir("images")
-# for file_name in images:
-# 	full_file_name = os.path.join("images", file_name)
-# 	if (os.path.isfile(full_file_name)):
-# 		shutil.copy(full_file_name, "metagenomics3004/img")
+images = os.listdir("images")
+for file_name in images:
+	full_file_name = os.path.join("images", file_name)
+	if (os.path.isfile(full_file_name)):
+		shutil.copy(full_file_name, "metagenomics3004/img")
