@@ -48,6 +48,11 @@ class Tutorials(Handler):
     def get(self, number):
         self.render('programming' + str(number) + ".html")
 
+
+class About(Handler):
+    def get(self):
+        self.render("about.html")
+
 class SignIn(Handler):
     def get(self):
         self.render('sign-in.html')
@@ -56,5 +61,5 @@ class SignIn(Handler):
 
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler), ('/programming', Programming), (r'/programming(\d+)', Tutorials), ('/sign-in', SignIn)
+    ('/', MainHandler), ('/programming', Programming), (r'/programming(\d+)', Tutorials), ('/sign-in', SignIn), ('/about', About)
 ], debug=True)
